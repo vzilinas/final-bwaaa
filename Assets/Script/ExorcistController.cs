@@ -7,6 +7,7 @@ public class ExorcistController : MonoBehaviour
     public float projectileVelocity = 10;
     private Vector3 playerPos;
     private Vector3 playerDirection;
+    public int pillAmount = 0;
 
     void Update()
     {
@@ -20,7 +21,14 @@ public class ExorcistController : MonoBehaviour
         }
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Item")
+        {
+            Destroy(collision.gameObject);
+            pillAmount++;
+        }
+    }
     void Fire()
     {
         playerPos = gameObject.transform.position;
