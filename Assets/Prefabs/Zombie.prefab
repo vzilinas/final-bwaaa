@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114940118220031254}
   - component: {fileID: 82944526398104454}
   - component: {fileID: 114744002295903056}
+  - component: {fileID: 95136878071600680}
+  - component: {fileID: 114061345918781750}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -186,6 +188,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95136878071600680
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777308365698744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114061345918781750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777308365698744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db980ce1e01aa8249912a1e796dd0f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95136878071600680}
+  frontController: {fileID: 9100000, guid: a01f02aa4f80b2248b4d50841ad117e1, type: 2}
+  backController: {fileID: 9100000, guid: d83412869e4206540ab0ee3a7bc69cb7, type: 2}
+  rightController: {fileID: 9100000, guid: 3d2e73bf9cd5f84459bdd48d5ed9bfe5, type: 2}
+  leftController: {fileID: 9100000, guid: e63f022ceafc9264aa8388b6107678d6, type: 2}
 --- !u!114 &114744002295903056
 MonoBehaviour:
   m_ObjectHideFlags: 1
