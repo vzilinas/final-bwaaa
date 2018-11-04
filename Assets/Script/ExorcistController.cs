@@ -2,13 +2,22 @@
 
 public class ExorcistController : MonoBehaviour
 {
+    public AudioClip exorcistDamagedAudio;
+    private AudioSource audioSource;
     public GameObject bulletPrefab;
     public float projectileSpawnDistance = 5;
     public float projectileVelocity = 10;
+    public int maxHealth;
+    private int currentHealth;
     private Vector3 playerPos;
     private Vector3 playerDirection;
     public int pillAmount = 0;
 
+    //public Sprite zombieSprite;
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -19,16 +28,19 @@ public class ExorcistController : MonoBehaviour
             }
             Fire();
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Item")
+        if (currentHealth > maxHealth)
         {
-            Destroy(collision.gameObject);
-            pillAmount++;
+            currentHealth = maxHealth;
+        }
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
         }
     }
+
     void Fire()
     {
         playerPos = gameObject.transform.position;
@@ -43,5 +55,26 @@ public class ExorcistController : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = playerDirection * projectileVelocity;
 
         Destroy(bullet, 1.0f);
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        //gameObject.GetComponent<SpriteRenderer>().sprite = zombieSprite;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            AudioSource.PlayClipAtPoint(exorcistDamagedAudio, transform.position);
+            currentHealth--;
+        }
+
+        if (collision.gameObject.tag == "Item")
+        {
+            Destroy(collision.gameObject);
+            pillAmount++;
+        }
     }
 }

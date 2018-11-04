@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12773,6 +12773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ad3f94dcfa21a42a49b4d37fff74a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exorcistDamagedAudio: {fileID: 8300000, guid: e0726d1e7325cf841bfc9602d5165eeb,
+    type: 3}
   bulletPrefab: {fileID: 1811877181586250, guid: ed455f66f59bc274dafe1449c61d5e07,
     type: 2}
   projectileSpawnDistance: 5
@@ -12794,6 +12796,7 @@ MonoBehaviour:
   backController: {fileID: 9100000, guid: 79f129fcaeef5374cba94bcd0da79562, type: 2}
   rightController: {fileID: 9100000, guid: 63cf254873af1aa4d8bfacc37ae7cae3, type: 2}
   leftController: {fileID: 9100000, guid: c0836f030010bff468119b381e5f76bc, type: 2}
+  maxHealth: 2
 --- !u!1 &1251790826
 GameObject:
   m_ObjectHideFlags: 0
@@ -18395,7 +18398,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f97f13ff86ca9b64e812b93a9afdab35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a70e7e92bf98fd545b55c54f09dddc50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -2,14 +2,13 @@
 
 public class ZombieController : MonoBehaviour {
 
-    //public AudioClip zombieDeathAudio;
+    public AudioClip zombieDeathAudio;
     private AudioSource audioSource;
     public int maxHealth = 2;
     private int currentHealth;
 
     void Start () {
         currentHealth = maxHealth;
-
     }
     void Update()
     {
@@ -27,6 +26,7 @@ public class ZombieController : MonoBehaviour {
 
     void Die()
     {
+        AudioSource.PlayClipAtPoint(zombieDeathAudio, transform.position);
         Destroy(gameObject);
     }
 
