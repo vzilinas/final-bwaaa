@@ -8,7 +8,7 @@ public class ExorcistController : MonoBehaviour
     public float projectileSpawnDistance = 5;
     public float projectileVelocity = 10;
     public int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
     private Vector3 playerPos;
     private Vector3 playerDirection;
     public int pillAmount = 0;
@@ -27,11 +27,6 @@ public class ExorcistController : MonoBehaviour
                 return;
             }
             Fire();
-        }
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
         }
 
         if (currentHealth <= 0)
@@ -75,6 +70,7 @@ public class ExorcistController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             pillAmount++;
+            currentHealth++;
         }
     }
 }
