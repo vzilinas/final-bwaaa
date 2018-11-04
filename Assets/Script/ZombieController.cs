@@ -2,12 +2,15 @@
 
 public class ZombieController : MonoBehaviour {
 
-    private int currentHealth = 2;
-    private int maxHealth = 2;
+    //public AudioClip zombieDeathAudio;
+    private AudioSource audioSource;
+    public int maxHealth = 2;
+    private int currentHealth;
 
     void Start () {
-		
-	}
+        currentHealth = maxHealth;
+
+    }
     void Update()
     {
         if (currentHealth > maxHealth)
@@ -29,7 +32,7 @@ public class ZombieController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" || col.gameObject.tag == "PlayerAttack")
+        if (col.gameObject.tag == "PlayerAttack")
         {
             currentHealth--;
         }
