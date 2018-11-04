@@ -2,11 +2,16 @@
 
 public class RigidMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-
+    public Rigidbody2D rigidbody;
+    public Animator animator;
+    public RuntimeAnimatorController frontController;
+    public RuntimeAnimatorController backController;
+    public RuntimeAnimatorController rightController;
+    public RuntimeAnimatorController leftController;
+    public AudioSource audio;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -14,12 +19,36 @@ public class RigidMovement : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        rb.velocity = new Vector3(moveHorizontal * 200, moveVertical * 200, 0);
-        //rb.velocity = new Vector3(0, moveVertical * 200, moveVertical * 200);
-
-        //rb.velocity = new Vector3(0, moveVertical, 0);
-        //rb.AddForce(movement * 150.0f);
-        //rb.AddForce(movement2 * 150.0f);
-
+        if (moveHorizontal < 0)
+        {
+            animator.runtimeAnimatorController = leftController;
+        }
+        if (moveHorizontal > 0)
+        {
+            animator.runtimeAnimatorController = rightController;
+        }
+        if (moveHorizontal == 0)
+        {
+            if (moveVertical < 0)
+            {
+                animator.runtimeAnimatorController = frontController;
+            }
+            if (moveVertical > 0)
+            {
+                animator.runtimeAnimatorController = backController;
+            }
+        }
+        rigidbody.velocity = new Vector3(moveHorizontal * 150, moveVertical * 150, 0);
+        if(rigidbody.velocity.x == 0 && rigidbody.velocity.y == 0)
+        {
+            animator.StartPlayback();
+            audio.FadeOut(2f);
+        }
+        else
+        {
+            animator.StopPlayback();
+            audio.volume = 1f;
+            audio.mute = false;
+        }
     }
 }
