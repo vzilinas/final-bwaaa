@@ -13,6 +13,7 @@ public class HearthGeneration : MonoBehaviour {
     private bool isUpdating = false;
     // Use this for initialization
     void Start () {
+        spaceBetween = hearth.GetComponent<Renderer>().bounds.size.x * 10;
         canvas = GetComponent<Canvas>();
         var rect = canvas.transform.GetComponent<RectTransform>();
         for (int i= 1; i < exorcist.maxHealth+1; i++)
