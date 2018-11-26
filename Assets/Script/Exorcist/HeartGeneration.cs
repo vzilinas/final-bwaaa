@@ -11,39 +11,48 @@ public class HeartGeneration : MonoBehaviour {
     private int currentlyHearts;
     private Canvas canvas;
     private bool isUpdating = false;
+    private bool heartsDisplayed = false;
     // Use this for initialization
     void Start () {
-        spaceBetween = heart.GetComponent<Renderer>().bounds.size.x * 10;
-        canvas = GetComponent<Canvas>();
-        var rect = canvas.transform.GetComponent<RectTransform>();
-        for (int i= 1; i < exorcist.maxHealth+1; i++)
-        {
-            var hearts = Instantiate(heart);
-            hearts.transform.SetParent(canvas.transform);
-            hearts.name = "heart" + i.ToString();
-            hearts.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (i * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);
-        }
-        currentlyHearts = exorcist.maxHealth;
+
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update() {
         if (!isUpdating)
         {
             isUpdating = true;
-            if (exorcist.currentHealth < currentlyHearts)
+            if (!heartsDisplayed && exorcist.gotHearts)
+            {
+                spaceBetween = heart.GetComponent<Renderer>().bounds.size.x * 10;
+                canvas = GetComponent<Canvas>();
+                var rect = canvas.transform.GetComponent<RectTransform>();
+                for (int i = 1; i < exorcist.maxHealth + 1; i++)
+                {
+                    var hearts = Instantiate(heart);
+                    hearts.transform.SetParent(canvas.transform);
+                    hearts.name = "heart" + i.ToString();
+                    hearts.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (i * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);
+                }
+                currentlyHearts = exorcist.maxHealth;
+                heartsDisplayed = true;
+            }
+            if (exorcist != null && exorcist.currentHealth < currentlyHearts)
             {
                 Destroy(GameObject.Find("heart" + currentlyHearts));
                 currentlyHearts--;
             }
             else if (exorcist.currentHealth > currentlyHearts)
             {
-                var rect = canvas.transform.GetComponent<RectTransform>();
-                var hearths = Instantiate(heart);
-                hearths.transform.SetParent(canvas.transform);
-                hearths.name = "heart" + exorcist.currentHealth.ToString();
-                hearths.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (exorcist.currentHealth * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);
-                currentlyHearts++;
+                if (canvas != null)
+                {
+                    var rect = canvas.transform.GetComponent<RectTransform>();
+                    var hearths = Instantiate(heart);
+                    hearths.transform.SetParent(canvas.transform);
+                    hearths.name = "heart" + exorcist.currentHealth.ToString();
+                    hearths.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (exorcist.currentHealth * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);
+                    currentlyHearts++;
+                }
             }
             isUpdating = false;
         }

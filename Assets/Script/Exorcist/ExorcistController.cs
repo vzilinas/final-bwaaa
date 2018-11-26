@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExorcistController : MonoBehaviour
 {
@@ -12,7 +14,12 @@ public class ExorcistController : MonoBehaviour
     private Vector3 playerPos;
     private Vector3 playerDirection;
     public int pillAmount = 0;
-
+    public bool gotHearts = false;
+    public bool gotCross = false;
+    private bool nearHearths = false;
+    private bool nearCross = false;
+    private bool nearPortal = false;
+    public ExorcistItemController itemController;
     //public Sprite zombieSprite;
     private void Start()
     {
@@ -20,7 +27,7 @@ public class ExorcistController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (gotCross && Input.GetKeyDown(KeyCode.Space))
         {
             if (gameObject.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
             {
@@ -28,7 +35,24 @@ public class ExorcistController : MonoBehaviour
             }
             Fire();
         }
-
+        if(nearCross && Input.GetKeyDown(KeyCode.E))
+        {
+            gotCross = true;
+            itemController.CrossImage();
+            itemController.CrossText(false);
+        }
+        if (nearHearths && Input.GetKeyDown(KeyCode.E))
+        {
+            gotHearts = true;
+            itemController.HeartsText(false);
+        }
+        if (nearPortal && Input.GetKeyDown(KeyCode.E))
+        {
+            if(gotCross && gotHearts)
+            {
+                SceneManager.LoadScene("Scenes/Graveyard/Room1");
+            }
+        }
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -60,7 +84,7 @@ public class ExorcistController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             AudioSource.PlayClipAtPoint(exorcistDamagedAudio, transform.position);
             currentHealth--;
@@ -73,4 +97,46 @@ public class ExorcistController : MonoBehaviour
             currentHealth++;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!gotHearts && collision.gameObject.name == "CupAsset")
+        {
+            nearHearths = true;
+            itemController.HeartsText(true);
+
+        }
+        if (!gotCross && collision.gameObject.name == "CrossAsset")
+        {
+            nearCross = true;
+            itemController.CrossText(true);
+        }
+        if(gotCross && gotHearts && collision.gameObject.name == "PortalSprite")
+        {
+            nearPortal = true;
+            itemController.PortalReadyText(true);
+        }
+        else if(collision.gameObject.name == "PortalSprite")
+        {
+            itemController.PortalNotReadyText(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "CupAsset")
+        {
+            nearHearths = false;
+            itemController.HeartsText(false);
+        }
+        if (collision.gameObject.name == "CrossAsset")
+        {
+            nearCross = false;
+            itemController.CrossText(false);
+        }
+        if(collision.gameObject.name == "PortalSprite")
+        {
+            itemController.PortalReadyText(false);
+            itemController.PortalNotReadyText(false);
+        }
+    }
+
 }
