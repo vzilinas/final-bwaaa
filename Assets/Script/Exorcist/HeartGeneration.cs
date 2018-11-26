@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HearthGeneration : MonoBehaviour {
+public class HeartGeneration : MonoBehaviour {
     public ExorcistController exorcist;
-    public GameObject hearth;
+    public GameObject heart;
     public float initialX;
     public float initialY;
     public float spaceBetween;
@@ -13,15 +13,15 @@ public class HearthGeneration : MonoBehaviour {
     private bool isUpdating = false;
     // Use this for initialization
     void Start () {
-        spaceBetween = hearth.GetComponent<Renderer>().bounds.size.x * 10;
+        spaceBetween = heart.GetComponent<Renderer>().bounds.size.x * 10;
         canvas = GetComponent<Canvas>();
         var rect = canvas.transform.GetComponent<RectTransform>();
         for (int i= 1; i < exorcist.maxHealth+1; i++)
         {
-            var hearths = Instantiate(hearth);
-            hearths.transform.SetParent(canvas.transform);
-            hearths.name = "heart" + i.ToString();
-            hearths.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (i * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);
+            var hearts = Instantiate(heart);
+            hearts.transform.SetParent(canvas.transform);
+            hearts.name = "heart" + i.ToString();
+            hearts.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (i * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);
         }
         currentlyHearts = exorcist.maxHealth;
     }
@@ -39,7 +39,7 @@ public class HearthGeneration : MonoBehaviour {
             else if (exorcist.currentHealth > currentlyHearts)
             {
                 var rect = canvas.transform.GetComponent<RectTransform>();
-                var hearths = Instantiate(hearth);
+                var hearths = Instantiate(heart);
                 hearths.transform.SetParent(canvas.transform);
                 hearths.name = "heart" + exorcist.currentHealth.ToString();
                 hearths.transform.localPosition = new Vector3(150 - (rect.sizeDelta.x / 2) + (exorcist.currentHealth * spaceBetween), 80 - rect.sizeDelta.y / 2, 0);

@@ -59,7 +59,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
+  m_Mass: 250
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db08730657d87642827bfb00b822dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieDeathAudio: {fileID: 8300000, guid: b3b0e0bfd5efb41438ee9ce14a689a2c, type: 3}
+  deathAudio: {fileID: 8300000, guid: b3b0e0bfd5efb41438ee9ce14a689a2c, type: 3}
   maxHealth: 2
 --- !u!114 &114965811019532586
 MonoBehaviour:

@@ -32,7 +32,7 @@ public class RandomMovement : MonoBehaviour
         else
         {
             timeBetweenMoveCounter -= Time.deltaTime;
-            myrigid.velocity = Vector2.zero;
+            myrigid.velocity = Vector3.zero;
             if (timeBetweenMoveCounter < 0f)
             {
                 moving = true;

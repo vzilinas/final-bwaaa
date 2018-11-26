@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class ZombieController : MonoBehaviour {
+public class MonsterHealthController : MonoBehaviour {
 
-    public AudioClip zombieDeathAudio;
+    public AudioClip deathAudio;
     private AudioSource audioSource;
-    public int maxHealth = 2;
+    public int maxHealth = 3;
     private int currentHealth;
 
     void Start () {
@@ -26,7 +26,7 @@ public class ZombieController : MonoBehaviour {
 
     void Die()
     {
-        AudioSource.PlayClipAtPoint(zombieDeathAudio, transform.position);
+        AudioSource.PlayClipAtPoint(deathAudio, transform.position);
         Destroy(gameObject);
     }
 
