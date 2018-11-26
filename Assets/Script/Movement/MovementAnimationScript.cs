@@ -18,15 +18,15 @@ public class MovementAnimationScript : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         var actualPos = this.transform.position;
 
-        if (actualPos.x - prevPos.x < 0)
+        if (actualPos.x - prevPos.x < 0 && leftController != null)
         {
             animator.runtimeAnimatorController = leftController;
         }
-        if (actualPos.x - prevPos.x > 0)
+        if (actualPos.x - prevPos.x > 0 && rightController != null)
         {
             animator.runtimeAnimatorController = rightController;
         }
-        if (actualPos.x == prevPos.x)
+        if (actualPos.x == prevPos.x || leftController == null || rightController == null)
         {
             if (actualPos.y - prevPos.y < 0)
             {

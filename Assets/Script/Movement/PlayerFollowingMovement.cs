@@ -27,5 +27,4 @@ public class PlayerFollowingMovement : MonoBehaviour
 
         myRigid.velocity = Vector3.zero;
     }
-
 }
