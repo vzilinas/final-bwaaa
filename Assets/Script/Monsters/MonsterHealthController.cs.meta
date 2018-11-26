@@ -3,7 +3,9 @@ guid: 4db08730657d87642827bfb00b822dcb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - zombie: {fileID: 1777308365698744, guid: e085c3ef52202384bb393700977185ad, type: 2}
+  - deathAudio: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

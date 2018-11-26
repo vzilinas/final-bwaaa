@@ -5,7 +5,7 @@ using UnityEngine;
 public class PillFollow : MonoBehaviour {
 
     public float speed;
-    private Collider2D collider;
+    private Collider2D col;
 
     // Use this for initialization
     void Start () {
@@ -14,21 +14,21 @@ public class PillFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(collider != null)
+		if(col != null)
         {
-            if (collider.tag == "Player")
+            if (col.tag == "Player")
             {
                 float step = speed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, collider.transform.position, step);
+                transform.position = Vector3.MoveTowards(transform.position, col.transform.position, step);
             }
         }
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collider = collision;
+        col = collision;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collider = null;
+        col = null;
     }
 }
