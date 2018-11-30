@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,10 @@ public class ExorcistController : MonoBehaviour
     public int currentHealth;
     private Vector3 playerPos;
     private Vector3 playerDirection;
+    private Vector3 lastPlayerDirection;
+    private Vector3 projectileSpawnPos;
+    private float gunCooldown;
+    private bool canShoot;
     public int pillAmount = 0;
     public bool gotHearts = false;
     public bool gotCross = false;
@@ -24,7 +29,7 @@ public class ExorcistController : MonoBehaviour
     //public Sprite zombieSprite;
     private void Start()
     {
-        if(gotCross)
+        if (gotCross)
         {
             itemController.CrossImage();
         }
@@ -32,15 +37,23 @@ public class ExorcistController : MonoBehaviour
     }
     void Update()
     {
-        if (gotCross && Input.GetKeyDown(KeyCode.Space))
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.normalized != Vector2.zero)
         {
-            if (gameObject.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
-            {
-                return;
-            }
-            Fire();
+            lastPlayerDirection = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
         }
-        if(nearCross && Input.GetKeyDown(KeyCode.E))
+
+        if (gotCross && Input.GetKeyDown(KeyCode.Space) && canShoot)
+        {
+            Fire();
+            gunCooldown = Time.time + 0.3f;
+            canShoot = false;
+        }
+        if (!canShoot && Time.time > gunCooldown)
+        {
+            canShoot = true;
+
+        }
+        if (nearCross && Input.GetKeyDown(KeyCode.E))
         {
             gotCross = true;
             itemController.CrossImage();
@@ -69,14 +82,32 @@ public class ExorcistController : MonoBehaviour
     {
         playerPos = gameObject.transform.position;
         playerDirection = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
-        Vector3 spawnPos = playerPos + playerDirection * projectileSpawnDistance;
+        if (playerDirection == Vector3.zero)
+        {
+            projectileSpawnPos = playerPos + lastPlayerDirection * projectileSpawnDistance;
+        }
+        else
+        {
+            projectileSpawnPos = playerPos + playerDirection * projectileSpawnDistance;
+        }
 
         var bullet = Instantiate(
             bulletPrefab,
-            spawnPos,
+            projectileSpawnPos,
             Quaternion.Euler(new Vector3(0, 0, 1)));
+        Debug.Log("lastPlayerDirection");
+        Debug.Log(lastPlayerDirection);
+        Debug.Log("playerDirection");
+        Debug.Log(playerDirection);
 
-        bullet.GetComponent<Rigidbody2D>().velocity = playerDirection * projectileVelocity;
+        if (playerDirection == Vector3.zero)
+        {
+            bullet.GetComponent<Rigidbody2D>().velocity = lastPlayerDirection * projectileVelocity;
+        }
+        else
+        {
+            bullet.GetComponent<Rigidbody2D>().velocity = playerDirection * projectileVelocity;
+        }
 
         Destroy(bullet, 1.0f);
     }
@@ -115,12 +146,12 @@ public class ExorcistController : MonoBehaviour
             nearCross = true;
             itemController.CrossText(true);
         }
-        if(gotCross && gotHearts && collision.gameObject.name == "PortalSprite")
+        if (gotCross && gotHearts && collision.gameObject.name == "PortalSprite")
         {
             nearPortal = true;
             itemController.PortalReadyText(true);
         }
-        else if(collision.gameObject.name == "PortalSprite")
+        else if (collision.gameObject.name == "PortalSprite")
         {
             itemController.PortalNotReadyText(true);
         }
@@ -137,7 +168,7 @@ public class ExorcistController : MonoBehaviour
             nearCross = false;
             itemController.CrossText(false);
         }
-        if(collision.gameObject.name == "PortalSprite")
+        if (collision.gameObject.name == "PortalSprite")
         {
             itemController.PortalReadyText(false);
             itemController.PortalNotReadyText(false);
