@@ -215,7 +215,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -28522,7 +28522,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -28563,8 +28563,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1383619121}
   - component: {fileID: 1383619124}
-  - component: {fileID: 1383619123}
   - component: {fileID: 1383619122}
+  - component: {fileID: 1383619123}
   m_Layer: 0
   m_Name: PortalSprite
   m_TagString: Untagged
@@ -28597,8 +28597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 821556881}
---- !u!58 &1383619123
-CircleCollider2D:
+--- !u!61 &1383619123
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -28609,9 +28609,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.030323684, y: 0.91982377}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.53796965
+  m_Size: {x: 0.7576703, y: 0.93287486}
+  m_EdgeRadius: 0
 --- !u!212 &1383619124
 SpriteRenderer:
   m_ObjectHideFlags: 0
