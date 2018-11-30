@@ -53,7 +53,7 @@ public class ExorcistController : MonoBehaviour
         }
         if (nearPortal && Input.GetKeyDown(KeyCode.E))
         {
-            if(gotCross && gotHearts)
+            if(gotCross && gotHearts && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
                 SceneManager.LoadScene(nextScene);
             }
