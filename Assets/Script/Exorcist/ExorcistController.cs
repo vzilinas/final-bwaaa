@@ -23,6 +23,10 @@ public class ExorcistController : MonoBehaviour
     //public Sprite zombieSprite;
     private void Start()
     {
+        if(gotCross)
+        {
+            itemController.CrossImage();
+        }
         currentHealth = maxHealth;
     }
     void Update()
