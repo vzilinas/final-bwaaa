@@ -19,6 +19,7 @@ public class ExorcistController : MonoBehaviour
     private bool nearHearths = false;
     private bool nearCross = false;
     private bool nearPortal = false;
+    public string nextScene;
     public ExorcistItemController itemController;
     //public Sprite zombieSprite;
     private void Start()
@@ -54,7 +55,7 @@ public class ExorcistController : MonoBehaviour
         {
             if(gotCross && gotHearts)
             {
-                SceneManager.LoadScene("Scenes/Graveyard/Room1");
+                SceneManager.LoadScene(nextScene);
             }
         }
         if (currentHealth <= 0)

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,6 +320,11 @@ Prefab:
       propertyPath: portalNotReady
       value: 
       objectReference: {fileID: 1432155318}
+    - target: {fileID: 114573895309432554, guid: 559560451736a524bb4d10f41f6efa05,
+        type: 2}
+      propertyPath: nextScene
+      value: Scenes/Graveyard/Room1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 559560451736a524bb4d10f41f6efa05, type: 2}
   m_IsPrefabAsset: 0
@@ -12206,7 +12211,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 720527623}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0bd950bce9039494b99bbb411f66dff5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
