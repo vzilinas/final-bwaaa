@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 58513970559102680}
   - component: {fileID: 114361564318340752}
   - component: {fileID: 114112528490942840}
+  - component: {fileID: 114174667710217288}
+  - component: {fileID: 95003545014561132}
   m_Layer: 0
   m_Name: GraveRobber
   m_TagString: Enemy
@@ -106,6 +108,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 1.79}
   m_EdgeRadius: 0
+--- !u!95 &95003545014561132
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508527270628972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114112528490942840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,10 +151,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db08730657d87642827bfb00b822dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnlingOnDeath: {fileID: 0}
-  deathAudio: {fileID: 8300000, guid: a922174f48d4a134faf1ab7d11f7b9f2, type: 3}
+  spawnlingOnDeath: {fileID: 1148295862512112, guid: 6288df37341ea6e4d886ef71145f6788,
+    type: 2}
+  deathAudio: {fileID: 8300000, guid: 292bf84645ae60e4c893db3e875ec8f8, type: 3}
   maxHealth: 6
-  isSpawnerOnDeath: 0
+  isSpawnerOnDeath: 1
+--- !u!114 &114174667710217288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508527270628972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db980ce1e01aa8249912a1e796dd0f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95003545014561132}
+  frontController: {fileID: 9100000, guid: 66d441ad49fa52f4d9d40749fa6259ba, type: 2}
+  backController: {fileID: 9100000, guid: 4c4e838355eddb140adebbb435c36823, type: 2}
+  rightController: {fileID: 9100000, guid: d7cf66e37d7f0144fb6a82eb4b5fae84, type: 2}
+  leftController: {fileID: 9100000, guid: fcada90a292c519468077f7f790c4e1a, type: 2}
 --- !u!114 &114361564318340752
 MonoBehaviour:
   m_ObjectHideFlags: 1
