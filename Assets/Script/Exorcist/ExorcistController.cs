@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ExorcistController : MonoBehaviour
@@ -26,7 +24,6 @@ public class ExorcistController : MonoBehaviour
     private bool nearPortal = false;
     public string nextScene;
     public ExorcistItemController itemController;
-    //public Sprite zombieSprite;
     private void Start()
     {
         if (gotCross)
@@ -95,10 +92,6 @@ public class ExorcistController : MonoBehaviour
             bulletPrefab,
             projectileSpawnPos,
             Quaternion.Euler(new Vector3(0, 0, 1)));
-        Debug.Log("lastPlayerDirection");
-        Debug.Log(lastPlayerDirection);
-        Debug.Log("playerDirection");
-        Debug.Log(playerDirection);
 
         if (playerDirection == Vector3.zero)
         {
@@ -115,7 +108,6 @@ public class ExorcistController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        //gameObject.GetComponent<SpriteRenderer>().sprite = zombieSprite;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -131,6 +123,12 @@ public class ExorcistController : MonoBehaviour
             Destroy(collision.gameObject);
             pillAmount++;
             currentHealth++;
+        }
+
+        if(collision.gameObject.tag == "ShovelProjectile")
+        {
+            Destroy(collision.gameObject);
+            currentHealth--;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
