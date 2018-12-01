@@ -327,18 +327,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114573895309432554, guid: 559560451736a524bb4d10f41f6efa05,
         type: 2}
-<<<<<<< Updated upstream
       propertyPath: gotCross
       value: 0
-=======
-      propertyPath: projectileVelocity
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114573895309432554, guid: 559560451736a524bb4d10f41f6efa05,
         type: 2}
       propertyPath: shotWait
       value: 2
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 559560451736a524bb4d10f41f6efa05, type: 2}
