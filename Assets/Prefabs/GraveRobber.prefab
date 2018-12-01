@@ -116,10 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db08730657d87642827bfb00b822dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 1777308365698744, guid: e085c3ef52202384bb393700977185ad, type: 2}
+  spawnlingOnDeath: {fileID: 0}
   deathAudio: {fileID: 8300000, guid: a922174f48d4a134faf1ab7d11f7b9f2, type: 3}
   maxHealth: 6
-  isGraveRobber: 1
+  isSpawnerOnDeath: 0
 --- !u!114 &114361564318340752
 MonoBehaviour:
   m_ObjectHideFlags: 1

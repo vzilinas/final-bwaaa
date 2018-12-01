@@ -2,10 +2,10 @@
 
 public class MonsterHealthController : MonoBehaviour
 {
-    public GameObject zombie;
+    public GameObject spawnlingOnDeath;
     public AudioClip deathAudio;
     public int maxHealth;
-    public bool isGraveRobber;
+    public bool isSpawnerOnDeath;
     private AudioSource audioSource;
     private int currentHealth;
 
@@ -29,7 +29,7 @@ public class MonsterHealthController : MonoBehaviour
 
     void Die()
     {
-        if (isGraveRobber)
+        if (isSpawnerOnDeath)
         {
             SpawnZombiesOnDeath();
         }
@@ -42,8 +42,8 @@ public class MonsterHealthController : MonoBehaviour
             new Vector3(gameObject.transform.position.x - 5, gameObject.transform.position.y, 0f);
         Vector3 spawnPosition2 =
             new Vector3(gameObject.transform.position.x + 5, gameObject.transform.position.y, 0f);
-        Instantiate(zombie, spawnPosition2, new Quaternion(0f, 0f, 0f, 0f));
-        Instantiate(zombie, spawnPosition1, new Quaternion(0f, 0f, 0f, 0f));
+        Instantiate(spawnlingOnDeath, spawnPosition2, new Quaternion(0f, 0f, 0f, 0f));
+        Instantiate(spawnlingOnDeath, spawnPosition1, new Quaternion(0f, 0f, 0f, 0f));
     }
 
     void OnCollisionEnter2D(Collision2D col)
