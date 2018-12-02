@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Graveyard/Room4.unity
     guid: b40dbf0a477a94043b7d47fb7d196575
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 506a47797b4a04945a8807dd3a318912
+  - enabled: 1
+    path: Assets/Scenes/PreLevel.unity
+    guid: c36dd8f7ab39a8349b7bfc60023d1ab4
   m_configObjects: {}
