@@ -23,6 +23,7 @@ public class ExorcistController : MonoBehaviour
     private bool nearCross = false;
     public bool nearNextPortal = false;
     public bool nearPreviousPortal = false;
+    public int highScore;
 
     public HelperTextController textController;
     private void Start()
@@ -57,12 +58,16 @@ public class ExorcistController : MonoBehaviour
             gotCross = true;
             textController.CrossImage();
             textController.CrossText(false);
+            HighScore.score += 10;
+            highScore = HighScore.score;
         }
         if (nearHearths && Input.GetKeyDown(KeyCode.E))
         {
             gotHearts = true;
             currentHealth = maxHealth;
             textController.HeartsText(false);
+            HighScore.score += 10;
+            highScore = HighScore.score;
         }
         if (nearNextPortal && Input.GetKeyDown(KeyCode.E))
         {
@@ -118,7 +123,8 @@ public class ExorcistController : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        SceneManager.LoadScene("Score");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -131,6 +137,7 @@ public class ExorcistController : MonoBehaviour
 
         if (collision.gameObject.tag == "Item")
         {
+            HighScore.score += 50;
             Destroy(collision.gameObject);
             pillAmount++;
             currentHealth++;
