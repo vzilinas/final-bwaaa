@@ -163,10 +163,62 @@ public class ExorcistController : MonoBehaviour
 
         if (collision.gameObject.tag == "Item")
         {
+
             HighScore.score += 50;
             Destroy(collision.gameObject);
-            pillAmount++;
-            currentHealth++;
+            var rnd = new System.Random();
+            var tick = rnd.Next(1, 5);
+            if (tick == 1)
+            {
+                Debug.Log("healthBuff");
+                if (currentHealth < 5)
+                {
+                    BuffManager.healthBuff = true;
+                }
+                else
+                {
+                    tick = 2;
+                }
+            }
+            if (tick == 2)
+            {
+                Debug.Log("movementBuff");
+
+                if (!BuffManager.movementBuff)
+                {
+                    BuffManager.movementBuff = true;
+                }
+                else
+                {
+                    tick = 3;
+                }
+            }
+            if (tick == 3)
+            {
+                Debug.Log("highScoreBuff");
+
+                if (!BuffManager.highScoreBuff)
+                {
+                    BuffManager.highScoreBuff = true;
+                }
+                else
+                {
+                    tick = 4;
+                }
+            }
+            if (tick == 4)
+            {
+                Debug.Log("fireRateBuff");
+
+                if (!BuffManager.fireRateBuff)
+                {
+                    BuffManager.fireRateBuff = true;
+                }
+                else
+                {
+                    BuffManager.buffCounter += 1;
+                }
+            }
         }
 
         if(collision.gameObject.tag == "ShovelProjectile")
