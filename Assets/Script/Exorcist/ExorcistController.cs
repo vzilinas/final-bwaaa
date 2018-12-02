@@ -166,7 +166,7 @@ public class ExorcistController : MonoBehaviour
             nearCross = true;
             textController.CrossText(true);
         }
-        if (gotCross && gotHearts && collision.gameObject.name == "NextPortal" && && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        if (gotCross && gotHearts && collision.gameObject.name == "NextPortal" && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             nearNextPortal = true;
             textController.PortalReadyText(true);
