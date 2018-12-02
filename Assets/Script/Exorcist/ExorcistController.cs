@@ -137,6 +137,7 @@ public class ExorcistController : MonoBehaviour
 
         if (collision.gameObject.tag == "Item")
         {
+            HighScore.score += 50;
             Destroy(collision.gameObject);
             pillAmount++;
             currentHealth++;

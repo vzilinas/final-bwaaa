@@ -29,6 +29,7 @@ public class MonsterHealthController : MonoBehaviour
 
     void Die()
     {
+        HighScore.score += 100;
         if (isSpawnerOnDeath)
         {
             SpawnZombiesOnDeath();
