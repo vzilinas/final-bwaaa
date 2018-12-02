@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114174667710217288}
   - component: {fileID: 95003545014561132}
   - component: {fileID: 114191484428081032}
+  - component: {fileID: 114050522861575438}
   m_Layer: 0
   m_Name: GraveRobber
   m_TagString: Enemy
@@ -110,6 +111,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114050522861575438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508527270628972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead06818ca14166448c3112929dd9d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnlingOnDeath: {fileID: 1148295862512112, guid: 6288df37341ea6e4d886ef71145f6788,
+    type: 2}
+  objectLeftOnDeath: {fileID: 1321020303770676, guid: 8c32f2488acee3646a99a4449c39602a,
+    type: 2}
+  animator: {fileID: 95003545014561132}
+  deathAnimatorController: {fileID: 9100000, guid: 88914ff4a624ddd4e9a84bb537198ca0,
+    type: 2}
+  isDead: 0
 --- !u!114 &114112528490942840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,10 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db08730657d87642827bfb00b822dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnlingOnDeath: {fileID: 1148295862512112, guid: 6288df37341ea6e4d886ef71145f6788,
-    type: 2}
-  objectLeftOnDeath: {fileID: 1321020303770676, guid: 8c32f2488acee3646a99a4449c39602a,
-    type: 2}
   deathAudio: {fileID: 8300000, guid: 292bf84645ae60e4c893db3e875ec8f8, type: 3}
   maxHealth: 6
   isSpawnerOnDeath: 1

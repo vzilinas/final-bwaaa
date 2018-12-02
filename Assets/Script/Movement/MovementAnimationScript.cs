@@ -7,13 +7,13 @@ public class MovementAnimationScript : MonoBehaviour {
     public RuntimeAnimatorController backController;
     public RuntimeAnimatorController rightController;
     public RuntimeAnimatorController leftController;
-	
 	// Update is called once per frame
 	void Update () {
         StartCoroutine(HandleIt());
     }
     private IEnumerator HandleIt()
     {
+
         var prevPos = this.transform.position;
         yield return new WaitForSeconds(0.1f);
         var actualPos = this.transform.position;
