@@ -24,6 +24,7 @@ public class ExorcistController : MonoBehaviour
     public bool nearNextPortal = false;
     public bool nearPreviousPortal = false;
     public int highScore;
+    public bool alreadyPaused = false;
 
     public HelperTextController textController;
     private void Start()
@@ -33,8 +34,9 @@ public class ExorcistController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!alreadyPaused && Input.GetKeyDown(KeyCode.Escape))
         {
+            alreadyPaused = true;
             GameObject.Find("GameFlow").GetComponent<ControlGameFlow>().PauseGame();
             SceneManager.LoadScene("InPlayExit", LoadSceneMode.Additive);
         }

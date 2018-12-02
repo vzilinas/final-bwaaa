@@ -22,6 +22,7 @@ public class MenuFunctions : MonoBehaviour {
     public void ResumeGame(string sceneName)
     {
         GameObject.Find("GameFlow").GetComponent<ControlGameFlow>().UnpauseGame();
+        GameObject.Find("Exorcist").GetComponent<ExorcistController>().alreadyPaused = false;
         UnloadScene(sceneName);
     }
 }
