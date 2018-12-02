@@ -8,6 +8,8 @@ TagManager:
   - PlayerAttack
   - Item
   - ShovelProjectile
+  - NextPortal
+  - PreviousPortal
   layers:
   - Default
   - TransparentFX

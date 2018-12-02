@@ -728,6 +728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295396745}
   - component: {fileID: 295396744}
+  - component: {fileID: 295396746}
   m_Layer: 0
   m_Name: GameFlow
   m_TagString: Untagged
@@ -759,6 +760,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &295396746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 295396743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695b9c7313f6fdc48ba4d6bc7260b51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pill: {fileID: 1440468759743060, guid: f128bf7b8329a8849a0315afda78886b, type: 2}
 --- !u!1 &320925715
 GameObject:
   m_ObjectHideFlags: 0
@@ -13144,7 +13157,7 @@ GameObject:
   - component: {fileID: 855636596}
   m_Layer: 0
   m_Name: Portal_return
-  m_TagString: Untagged
+  m_TagString: PreviousPortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83163,7 +83176,7 @@ GameObject:
   - component: {fileID: 868449864}
   m_Layer: 0
   m_Name: Portal
-  m_TagString: Untagged
+  m_TagString: NextPortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
