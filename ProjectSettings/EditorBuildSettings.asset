@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Church2.unity
     guid: 9b3f8dea4eb03064c946eadf3ac57ed5
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: ffeec565190e9524ba364b5826a19396
   m_configObjects: {}
