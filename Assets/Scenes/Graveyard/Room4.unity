@@ -79987,9 +79987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0705409fa56cef5468a5bee5b0174045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearthsText: {fileID: 0}
-  crossText: {fileID: 0}
-  crossImage: {fileID: 0}
+  hearthsText: {fileID: 2140568347}
+  crossText: {fileID: 2140568347}
+  crossImage: {fileID: 2140568347}
   portalReady: {fileID: 1557078909}
   portalNotReady: {fileID: 2140568347}
   portalBack: {fileID: 18734214}

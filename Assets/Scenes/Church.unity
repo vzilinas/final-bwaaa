@@ -12623,6 +12623,46 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 89014254}
   m_Script: {fileID: 11500000, guid: 46ad3f94dcfa21a42a49b4d37fff74a7, type: 3}
+--- !u!1 &1152525569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152525570}
+  - component: {fileID: 1152525571}
+  m_Layer: 0
+  m_Name: KillMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1152525570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152525569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 174.60706, y: 49.10765, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1152525571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152525569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac52b39b8c6dd14f999993bfd82e84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251790826
 GameObject:
   m_ObjectHideFlags: 0
@@ -17780,7 +17820,7 @@ MonoBehaviour:
   crossImage: {fileID: 96458994}
   portalReady: {fileID: 1670238481}
   portalNotReady: {fileID: 1432155318}
-  portalBack: {fileID: 0}
+  portalBack: {fileID: 1432155318}
 --- !u!4 &1658899851
 Transform:
   m_ObjectHideFlags: 0

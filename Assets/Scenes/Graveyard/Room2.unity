@@ -12110,9 +12110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0705409fa56cef5468a5bee5b0174045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearthsText: {fileID: 0}
-  crossText: {fileID: 0}
-  crossImage: {fileID: 0}
+  hearthsText: {fileID: 1843746547}
+  crossText: {fileID: 1843746547}
+  crossImage: {fileID: 1843746547}
   portalReady: {fileID: 855432513}
   portalNotReady: {fileID: 1843746547}
   portalBack: {fileID: 9867759}
