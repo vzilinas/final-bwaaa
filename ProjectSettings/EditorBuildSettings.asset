@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Score.unity
     guid: 9955f53471333eb47b99f87c78cd7212
+  - enabled: 1
+    path: Assets/Scenes/InPlayExit.unity
+    guid: f135cc07adc3ee0438e44cc319b9f222
   m_configObjects: {}

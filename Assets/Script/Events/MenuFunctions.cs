@@ -14,4 +14,14 @@ public class MenuFunctions : MonoBehaviour {
     {
         Application.Quit();
     }
+    public void UnloadScene(string sceneName)
+    {
+        SceneManager.UnloadScene(sceneName);
+    }
+
+    public void ResumeGame(string sceneName)
+    {
+        GameObject.Find("GameFlow").GetComponent<ControlGameFlow>().UnpauseGame();
+        UnloadScene(sceneName);
+    }
 }

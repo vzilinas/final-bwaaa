@@ -33,7 +33,12 @@ public class ExorcistController : MonoBehaviour
     }
     void Update()
     {
-        if(textController == null)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.Find("GameFlow").GetComponent<ControlGameFlow>().PauseGame();
+            SceneManager.LoadScene("InPlayExit", LoadSceneMode.Additive);
+        }
+        if (textController == null)
         {
             textController = GameObject.Find("HelperText").GetComponent<HelperTextController>();
         }
