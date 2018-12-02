@@ -130,6 +130,7 @@ MonoBehaviour:
   deathAnimatorController: {fileID: 9100000, guid: 88914ff4a624ddd4e9a84bb537198ca0,
     type: 2}
   isDead: 0
+  isDying: 0
 --- !u!114 &114112528490942840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +159,7 @@ MonoBehaviour:
   deathAudio: {fileID: 8300000, guid: 292bf84645ae60e4c893db3e875ec8f8, type: 3}
   maxHealth: 6
   isSpawnerOnDeath: 1
+  isDying: 0
 --- !u!114 &114174667710217288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95003545014561132}
-  frontController: {fileID: 9100000, guid: 66d441ad49fa52f4d9d40749fa6259ba, type: 2}
+  frontController: {fileID: 9100000, guid: 88914ff4a624ddd4e9a84bb537198ca0, type: 2}
   backController: {fileID: 9100000, guid: 4c4e838355eddb140adebbb435c36823, type: 2}
   rightController: {fileID: 9100000, guid: d7cf66e37d7f0144fb6a82eb4b5fae84, type: 2}
   leftController: {fileID: 9100000, guid: fcada90a292c519468077f7f790c4e1a, type: 2}
