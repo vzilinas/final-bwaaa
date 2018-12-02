@@ -7,6 +7,10 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("Exorcist").transform;
+        }
         if(player)
         {
             // if (player.position.x > 10 && player.position.y > -62)

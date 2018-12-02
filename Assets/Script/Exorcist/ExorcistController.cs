@@ -21,19 +21,21 @@ public class ExorcistController : MonoBehaviour
     public bool gotCross = false;
     private bool nearHearths = false;
     private bool nearCross = false;
-    private bool nearPortal = false;
-    public string nextScene;
-    public ExorcistItemController itemController;
+    public bool nearNextPortal = false;
+    public bool nearPreviousPortal = false;
+
+    public HelperTextController textController;
     private void Start()
     {
-        if (gotCross)
-        {
-            itemController.CrossImage();
-        }
         currentHealth = maxHealth;
+        textController = GameObject.Find("HelperText").GetComponent<HelperTextController>();
     }
     void Update()
     {
+        if(textController == null)
+        {
+            textController = GameObject.Find("HelperText").GetComponent<HelperTextController>();
+        }
         if (gameObject.GetComponent<Rigidbody2D>().velocity.normalized != Vector2.zero)
         {
             lastPlayerDirection = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
@@ -53,20 +55,29 @@ public class ExorcistController : MonoBehaviour
         if (nearCross && Input.GetKeyDown(KeyCode.E))
         {
             gotCross = true;
-            itemController.CrossImage();
-            itemController.CrossText(false);
+            textController.CrossImage();
+            textController.CrossText(false);
         }
         if (nearHearths && Input.GetKeyDown(KeyCode.E))
         {
             gotHearts = true;
-            itemController.HeartsText(false);
+            currentHealth = maxHealth;
+            textController.HeartsText(false);
         }
-        if (nearPortal && Input.GetKeyDown(KeyCode.E))
+        if (nearNextPortal && Input.GetKeyDown(KeyCode.E))
         {
             if(gotCross && gotHearts && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                SceneManager.LoadScene(nextScene);
+                GameObject.Find("SceneChanger").GetComponent<LevelChanger>().next = true;
+                gameObject.transform.position = new Vector2(-40, -130);
+                nearNextPortal = false;
             }
+        }
+        if (nearPreviousPortal && Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject.Find("SceneChanger").GetComponent<LevelChanger>().previous = true;
+            gameObject.transform.position = new Vector2(-40, -130);
+            nearPreviousPortal = false;    
         }
         if (currentHealth <= 0)
         {
@@ -136,22 +147,31 @@ public class ExorcistController : MonoBehaviour
         if (!gotHearts && collision.gameObject.name == "CupAsset")
         {
             nearHearths = true;
-            itemController.HeartsText(true);
-
+            textController.HeartsText(true);
+        }
+        if(currentHealth < maxHealth && collision.gameObject.name == "CupAsset")
+        {
+            nearHearths = true;
+            textController.HeartsText(true);
         }
         if (!gotCross && collision.gameObject.name == "CrossAsset")
         {
             nearCross = true;
-            itemController.CrossText(true);
+            textController.CrossText(true);
         }
-        if (gotCross && gotHearts && collision.gameObject.name == "PortalSprite")
+        if (gotCross && gotHearts && collision.gameObject.name == "NextPortal")
         {
-            nearPortal = true;
-            itemController.PortalReadyText(true);
+            nearNextPortal = true;
+            textController.PortalReadyText(true);
         }
-        else if (collision.gameObject.name == "PortalSprite")
+        else if (collision.gameObject.name == "PreviousPortal")
         {
-            itemController.PortalNotReadyText(true);
+            nearPreviousPortal = true;
+            textController.PortalBackText(true);
+        }
+        else if (collision.gameObject.name.Contains("Portal"))
+        {
+            textController.PortalNotReadyText(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -159,17 +179,20 @@ public class ExorcistController : MonoBehaviour
         if (collision.gameObject.name == "CupAsset")
         {
             nearHearths = false;
-            itemController.HeartsText(false);
+            textController.HeartsText(false);
         }
         if (collision.gameObject.name == "CrossAsset")
         {
             nearCross = false;
-            itemController.CrossText(false);
+            textController.CrossText(false);
         }
-        if (collision.gameObject.name == "PortalSprite")
+        if (collision.gameObject.name.Contains("Portal"))
         {
-            itemController.PortalReadyText(false);
-            itemController.PortalNotReadyText(false);
+            nearNextPortal = false;
+            nearPreviousPortal = false;
+            textController.PortalReadyText(false);
+            textController.PortalBackText(false);
+            textController.PortalNotReadyText(false);
         }
     }
 

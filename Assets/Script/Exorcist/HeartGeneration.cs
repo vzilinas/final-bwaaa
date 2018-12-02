@@ -12,7 +12,8 @@ public class HeartGeneration : MonoBehaviour {
     private bool heartsDisplayed = false;
     // Use this for initialization
     void Start () {
-
+        if(exorcist == null)
+            exorcist = GameObject.Find("Exorcist").GetComponent<ExorcistController>();
     }
 
     // Update is called once per frame

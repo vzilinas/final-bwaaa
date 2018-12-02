@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExorcistItemController : MonoBehaviour {
+public class HelperTextController : MonoBehaviour {
     public GameObject hearthsText;
     public GameObject crossText;
     public GameObject crossImage;
     public GameObject portalReady;
     public GameObject portalNotReady;
+    public GameObject portalBack;
     public void CrossImage()
     {
         crossImage.SetActive(true);
@@ -23,6 +24,10 @@ public class ExorcistItemController : MonoBehaviour {
     public void PortalReadyText(bool active)
     {
         portalReady.SetActive(active);
+    }
+    public void PortalBackText(bool active)
+    {
+        portalBack.SetActive(active);
     }
     public void PortalNotReadyText(bool active)
     {
