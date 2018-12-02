@@ -12,7 +12,7 @@ public class GetScore : MonoBehaviour {
         score = BuffManager.highScoreBuff ? Convert.ToInt32(score * 1.2) : score;
         score = BuffManager.highScoreDebuff ? Convert.ToInt32(score * 0.8) : score;
         
-        gameObject.GetComponent<Text>().text = HighScore.score.ToString();
+        gameObject.GetComponent<Text>().text = score.ToString();
         HighScore.score = 0;
 	}
 	
