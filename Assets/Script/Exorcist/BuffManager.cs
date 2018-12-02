@@ -10,14 +10,17 @@ public class BuffManager : MonoBehaviour {
         get { return instance; }
     }
     public static bool visibilityDebuff;
-    public static bool highScoreBuff;
-    public static bool movementBuff;
-    public static bool healthBuff;
-    public static bool highScoreDebuff;
-    public static bool monsterHealthDebuff;
-    public static bool playerHealthDebuff;
-    public static bool playerMovementDebuff;
-    public static bool monsterMovemetnBuff;
+    public static bool highScoreDebuff; //
+    public static bool playerHealthDebuff; //
+    public static bool playerMovementDebuff; //
+    public static bool monsterMovementBuff; //
+
+    public static bool highScoreBuff; //
+    public static bool movementBuff; //
+    public static bool healthBuff; //
+    public static bool fireRateBuff; //
+
+
     public static int buffCounter;
     public static int debuffCounter;
 }

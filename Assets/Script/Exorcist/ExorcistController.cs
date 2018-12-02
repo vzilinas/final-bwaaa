@@ -96,6 +96,25 @@ public class ExorcistController : MonoBehaviour
             currentHealth = 0;
             Die();
         }
+        if(BuffManager.playerHealthDebuff)
+        {
+            BuffManager.playerHealthDebuff = false;
+            BuffManager.debuffCounter += 1;
+            AudioSource.PlayClipAtPoint(exorcistDamagedAudio, transform.position);
+            currentHealth -= 1;
+        }
+        if(BuffManager.healthBuff)
+        {
+            BuffManager.healthBuff = false;
+            BuffManager.buffCounter += 1;
+            currentHealth += 1;
+        }
+        if (BuffManager.fireRateBuff)
+        {
+            BuffManager.fireRateBuff = false;
+            BuffManager.buffCounter += 1;
+            projectileVelocity = 20;
+        }
     }
 
     void Fire()

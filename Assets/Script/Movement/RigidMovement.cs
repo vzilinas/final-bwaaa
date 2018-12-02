@@ -14,9 +14,15 @@ public class RigidMovement : MonoBehaviour
     {
         if(BuffManager.playerMovementDebuff)
         {
+            BuffManager.playerMovementDebuff = false;
             movementSpeed = movementSpeed * 0.75f;
             BuffManager.debuffCounter += 1;
-            BuffManager.playerMovementDebuff = false;
+        }
+        if (BuffManager.movementBuff)
+        {
+            BuffManager.movementBuff = false;
+            movementSpeed = movementSpeed * 1.2f;
+            BuffManager.buffCounter += 1;
         }
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");

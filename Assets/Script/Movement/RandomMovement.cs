@@ -19,6 +19,11 @@ public class RandomMovement : MonoBehaviour
     }
     void Update()
     {
+        if(BuffManager.monsterMovementBuff)
+        {
+            BuffManager.debuffCounter += 1;
+            moveSpeed = moveSpeed * 1.2f;
+        }
         if (moving)
         {
             timeToMoveCounter -= Time.deltaTime;
