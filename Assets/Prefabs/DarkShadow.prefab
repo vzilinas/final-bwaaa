@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114868507733410678}
   - component: {fileID: 114672988527541374}
   - component: {fileID: 95703592330957424}
-  - component: {fileID: 114020547173589358}
   m_Layer: 0
   m_Name: DarkShadow
   m_TagString: Enemy
@@ -110,20 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114020547173589358
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1148295862512112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6097e0586b85c040859a9c0d8a56d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 1285579115173410, guid: 4536a464dac04de4385b735cbc1a78c3, type: 2}
-  fireRate: 1
-  projectileSpawnDistance: 10
 --- !u!114 &114174038680640858
 MonoBehaviour:
   m_ObjectHideFlags: 1
