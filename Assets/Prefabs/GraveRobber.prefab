@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnlingOnDeath: {fileID: 1148295862512112, guid: 6288df37341ea6e4d886ef71145f6788,
     type: 2}
+  objectLeftOnDeath: {fileID: 1321020303770676, guid: 8c32f2488acee3646a99a4449c39602a,
+    type: 2}
   deathAudio: {fileID: 8300000, guid: 292bf84645ae60e4c893db3e875ec8f8, type: 3}
   maxHealth: 6
   isSpawnerOnDeath: 1

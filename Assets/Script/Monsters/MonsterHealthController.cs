@@ -3,6 +3,7 @@
 public class MonsterHealthController : MonoBehaviour
 {
     public GameObject spawnlingOnDeath;
+    public GameObject objectLeftOnDeath;
     public AudioClip deathAudio;
     public int maxHealth;
     public bool isSpawnerOnDeath;
@@ -32,9 +33,19 @@ public class MonsterHealthController : MonoBehaviour
         if (isSpawnerOnDeath)
         {
             SpawnZombiesOnDeath();
+            LeaveCorpseOnGround();
         }
         AudioSource.PlayClipAtPoint(deathAudio, transform.position);
         Destroy(gameObject);
+    }
+
+    void LeaveCorpseOnGround()
+    {
+        var deathPosition = new Vector3(
+         gameObject.transform.position.x,
+         gameObject.transform.position.y,
+         0f);
+        Instantiate(objectLeftOnDeath, deathPosition, new Quaternion(0f, 0f, 0f, 0f));
     }
     void SpawnZombiesOnDeath()
     {
