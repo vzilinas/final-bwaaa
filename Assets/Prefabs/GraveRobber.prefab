@@ -23,11 +23,10 @@ GameObject:
   - component: {fileID: 50174645009796820}
   - component: {fileID: 61634182084444790}
   - component: {fileID: 114145712839791404}
-  - component: {fileID: 58513970559102680}
-  - component: {fileID: 114361564318340752}
   - component: {fileID: 114112528490942840}
   - component: {fileID: 114174667710217288}
   - component: {fileID: 95003545014561132}
+  - component: {fileID: 114191484428081032}
   m_Layer: 0
   m_Name: GraveRobber
   m_TagString: Enemy
@@ -68,21 +67,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58513970559102680
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1508527270628972}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 7.18
 --- !u!61 &61634182084444790
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -174,7 +158,7 @@ MonoBehaviour:
   backController: {fileID: 9100000, guid: 4c4e838355eddb140adebbb435c36823, type: 2}
   rightController: {fileID: 9100000, guid: d7cf66e37d7f0144fb6a82eb4b5fae84, type: 2}
   leftController: {fileID: 9100000, guid: fcada90a292c519468077f7f790c4e1a, type: 2}
---- !u!114 &114361564318340752
+--- !u!114 &114191484428081032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,10 +166,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1508527270628972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b311833fa3d2784a93ad64cbba71590, type: 3}
+  m_Script: {fileID: 11500000, guid: 4979ef5fd7751be4795f9a5f507b4579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  moveSpeed: 30
+  timeBetweenMove: 2
+  timeToMove: 1
 --- !u!212 &212843387461449030
 SpriteRenderer:
   m_ObjectHideFlags: 1

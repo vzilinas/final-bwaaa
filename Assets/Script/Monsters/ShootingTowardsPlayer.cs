@@ -42,7 +42,7 @@ public class ShootingTowardsPlayer : MonoBehaviour
                 projectileSpawnPos = shooterPos + shooterDirection * projectileSpawnDistance;
             }
 
-            Instantiate(projectile, projectileSpawnPos, Quaternion.Euler(new Vector3(0, 0, 1)));
+            Instantiate(projectile, projectileSpawnPos, Quaternion.Euler(new Vector3(0, 0, 0)));
 
             nextFire = Time.time + fireRate;
         }
