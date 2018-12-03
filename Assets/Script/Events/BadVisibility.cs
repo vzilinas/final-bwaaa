@@ -14,5 +14,10 @@ public class BadVisibility : MonoBehaviour {
             panel.SetActive(true);
             panelVisible = true;
         }
+        if (!BuffManager.visibilityDebuff)
+        {
+            panelVisible = false;
+            panel.SetActive(false);
+        }
 	}
 }

@@ -174,6 +174,7 @@ public class ExorcistController : MonoBehaviour
                 if (currentHealth < 5)
                 {
                     BuffManager.healthBuff = true;
+                    BuffDebuff.UpdateText("Player Health Buff");
                 }
                 else
                 {
@@ -187,6 +188,7 @@ public class ExorcistController : MonoBehaviour
                 if (!BuffManager.movementBuff)
                 {
                     BuffManager.movementBuff = true;
+                    BuffDebuff.UpdateText("Player Movement Buff");
                 }
                 else
                 {
@@ -200,6 +202,7 @@ public class ExorcistController : MonoBehaviour
                 if (!BuffManager.highScoreBuff)
                 {
                     BuffManager.highScoreBuff = true;
+                    BuffDebuff.UpdateText("High Score Buff");
                 }
                 else
                 {
@@ -213,6 +216,7 @@ public class ExorcistController : MonoBehaviour
                 if (!BuffManager.fireRateBuff)
                 {
                     BuffManager.fireRateBuff = true;
+                    BuffDebuff.UpdateText("Player Fire Rate Buff");
                 }
                 else
                 {

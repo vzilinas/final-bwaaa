@@ -30,6 +30,7 @@ public class LevelChanger : MonoBehaviour
                 if (m_MyGameObject.GetComponent<ExorcistController>().currentHealth < 1)
                 {
                     BuffManager.playerHealthDebuff = true;
+                    BuffDebuff.UpdateText("Player Health Debuff");
                 }
                 else
                 {
@@ -42,6 +43,7 @@ public class LevelChanger : MonoBehaviour
                 if (!BuffManager.playerMovementDebuff)
                 {
                     BuffManager.playerMovementDebuff = true;
+                    BuffDebuff.UpdateText("Player Movement Debuff");
                 }
                 else
                 {
@@ -54,6 +56,7 @@ public class LevelChanger : MonoBehaviour
                 if (!BuffManager.monsterMovementBuff)
                 {
                     BuffManager.monsterMovementBuff = true;
+                    BuffDebuff.UpdateText("Monster Movement Buff");
                 }
                 else
                 {
@@ -66,6 +69,7 @@ public class LevelChanger : MonoBehaviour
                 if (!BuffManager.highScoreDebuff)
                 {
                     BuffManager.highScoreDebuff = true;
+                    BuffDebuff.UpdateText("High Score Debuff");
                 }
                 else
                 {
@@ -78,6 +82,7 @@ public class LevelChanger : MonoBehaviour
                 if (!BuffManager.visibilityDebuff)
                 {
                     BuffManager.visibilityDebuff = true;
+                    BuffDebuff.UpdateText("Player Visibility Debuff");
                 }
                 else
                 {

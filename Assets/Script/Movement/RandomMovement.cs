@@ -16,14 +16,14 @@ public class RandomMovement : MonoBehaviour
         myrigid = GetComponent<Rigidbody2D>();
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
         timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeToMove * 1.25f);
-    }
-    void Update()
-    {
-        if(BuffManager.monsterMovementBuff)
+        if (BuffManager.monsterMovementBuff)
         {
             BuffManager.debuffCounter += 1;
             moveSpeed = moveSpeed * 1.2f;
         }
+    }
+    void Update()
+    {
         if (moving)
         {
             timeToMoveCounter -= Time.deltaTime;

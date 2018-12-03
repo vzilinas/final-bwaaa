@@ -25,4 +25,26 @@ public class MenuFunctions : MonoBehaviour {
         GameObject.Find("Exorcist").GetComponent<ExorcistController>().alreadyPaused = false;
         UnloadScene(sceneName);
     }
+
+    public void EndGame(string sceneName)
+    {
+        Debug.Log(sceneName + " - entered EndGame");
+        var exorcist = GameObject.Find("Exorcist");
+        Destroy(exorcist);
+        BuffManager.visibilityDebuff = false;
+        BuffManager.highScoreDebuff = false; //
+        BuffManager.playerHealthDebuff = false; //
+        BuffManager.playerMovementDebuff = false; //
+        BuffManager.monsterMovementBuff = false; //
+
+        BuffManager.highScoreBuff = false; //
+        BuffManager.movementBuff = false; //
+        BuffManager.healthBuff = false;
+        BuffManager.fireRateBuff = false;
+
+        BuffManager.buffCounter = 0;
+        BuffManager.debuffCounter = 0;
+        BuffDebuff.effects.Clear();
+        LoadScene(sceneName);
+    }
 }

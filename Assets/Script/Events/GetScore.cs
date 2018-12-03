@@ -15,9 +15,4 @@ public class GetScore : MonoBehaviour {
         gameObject.GetComponent<Text>().text = score.ToString();
         HighScore.score = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

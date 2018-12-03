@@ -12,7 +12,7 @@ public class HeartGeneration : MonoBehaviour {
     private bool heartsDisplayed = false;
     // Use this for initialization
     void Start () {
-        if(exorcist == null)
+        if (exorcist == null)
             exorcist = GameObject.Find("Exorcist").GetComponent<ExorcistController>();
     }
 

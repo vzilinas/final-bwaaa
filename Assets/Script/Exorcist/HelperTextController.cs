@@ -27,7 +27,8 @@ public class HelperTextController : MonoBehaviour {
     }
     public void PortalBackText(bool active)
     {
-        portalBack.SetActive(active);
+        if(portalBack!=null)
+            portalBack.SetActive(active);
     }
     public void PortalNotReadyText(bool active)
     {
